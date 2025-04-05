@@ -37,8 +37,8 @@ option(HWINFO_SHARED "Shared build" ON)
 option(HWINFO_STATIC "Static build" OFF)
 
 
-option(BUILD_EXAMPLES "Build example program" ${PROJECT_IS_TOP_LEVEL})
-option(BUILD_TESTING  "Build test program" ${PROJECT_IS_TOP_LEVEL})
+option(HWINFO_BUILD_EXAMPLES "Build example program" ${PROJECT_IS_TOP_LEVEL})
+option(HWINFO_BUILD_TESTING  "Build test program" ${PROJECT_IS_TOP_LEVEL})
 
 # Components
 option(HWINFO_OS "Enable OS information" ON)
@@ -84,11 +84,11 @@ install(EXPORT lfreist-hwinfoTargets
         DESTINATION lib/cmake/hwinfo
 )
 
-if(BUILD_EXAMPLES OR BUILD_TESTING)
+if(HWINFO_BUILD_EXAMPLES OR HWINFO_BUILD_TESTING)
     add_subdirectory(examples)
 endif()
 
-if(BUILD_TESTING)
+if(HWINFO_BUILD_TESTING)
     include(CTest)
     add_subdirectory(test)
     add_test(system_info system_info)
